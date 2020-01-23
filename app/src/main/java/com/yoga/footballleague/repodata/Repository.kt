@@ -83,7 +83,29 @@ class Repository {
     fun getEvents(id: String, callback: RepoCallback<EventList>){
         BaseRest
             .createService(RepoApi::class.java)
-            .getNextMatch(id)
+            .getEvents(id)
+            .enqueue(object : Callback<EventList>{
+                override fun onFailure(call: Call<EventList>, t: Throwable) {
+                    callback.onDataError()
+                }
+
+                override fun onResponse(call: Call<EventList>, response: Response<EventList>) {
+                    response.let {
+                        if (it.isSuccessful){
+                            callback.DataLoad(it.body())
+                        } else {
+                            callback.onDataError()
+                        }
+                    }
+                }
+
+            })
+    }
+
+    fun getEvent(id: String, callback: RepoCallback<EventList>){
+        BaseRest
+            .createService(RepoApi::class.java)
+            .getEvent(id)
             .enqueue(object : Callback<EventList>{
                 override fun onFailure(call: Call<EventList>, t: Throwable) {
                     callback.onDataError()
@@ -119,6 +141,30 @@ class Repository {
                         if (it.isSuccessful){
                             callback.DataLoad(it.body())
                         } else{
+                            callback.onDataError()
+                        }
+                    }
+                }
+            })
+    }
+
+    fun getTeamName(t: String, callback: RepoCallback<ClubResponse>){
+        BaseRest
+            .createService(RepoApi::class.java)
+            .getTeamName(t)
+            .enqueue(object : Callback<ClubResponse> {
+                override fun onFailure(call: Call<ClubResponse>, t: Throwable) {
+                    callback.onDataError()
+                }
+
+                override fun onResponse(
+                    call: Call<ClubResponse>,
+                    response: Response<ClubResponse>
+                ) {
+                    response.let {
+                        if (it.isSuccessful) {
+                            callback.DataLoad(it.body())
+                        } else {
                             callback.onDataError()
                         }
                     }

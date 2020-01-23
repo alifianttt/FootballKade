@@ -9,10 +9,11 @@ class MatchPresenter(private val view:MatchIntf, private val repo:Repository) {
     fun getNextMatch(id: String){
         repo.getNextMatch(id, object : RepoCallback<EventList>{
             override fun DataLoad(data: EventList?) {
-
+                view.DataLoad(data)
             }
 
             override fun onDataError() {
+                view.onDataError()
             }
         })
     }
@@ -20,11 +21,11 @@ class MatchPresenter(private val view:MatchIntf, private val repo:Repository) {
     fun getPrevMatch(id: String){
         repo.getPevtMatch(id, object : RepoCallback<EventList>{
             override fun DataLoad(data: EventList?) {
-                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+                view.DataLoad(data)
             }
 
             override fun onDataError() {
-                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+                view.onDataError()
             }
         })
     }
@@ -32,11 +33,11 @@ class MatchPresenter(private val view:MatchIntf, private val repo:Repository) {
     fun getEvents(e: String){
         repo.getEvents(e, object : RepoCallback<EventList>{
             override fun DataLoad(data: EventList?) {
-                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+                view.DataLoad(data)
             }
 
             override fun onDataError() {
-                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+                view.onDataError()
             }
         })
     }

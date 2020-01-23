@@ -42,4 +42,21 @@
         <item>4330</item>
         <item>4396</item>
     </string-array>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="bt_team">Team</string>
+    <string name="bt_match">Match</string>
+    <string name="bt_fav">Favorite</string>
+    <string name="date_tv">14-06-1880</string>
+    <string name="name_team">Liverpool</string>
+    <string name="score_team">2</string>
+    <string name="gk_name">Petr Cech</string>
+    <string name="goal_keeper">Goal Keeper</string>
+    <string name="defender">Defender</string>
+    <string name="midfielder">Midfielder</string>
+    <string name="striker">Striker</string>
+    <string name="substitution">Substitution</string>
+    <string name="search">search</string>
+    <string name="bt_league">League</string>
 </resources>

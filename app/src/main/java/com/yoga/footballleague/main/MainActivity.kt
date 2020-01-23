@@ -2,49 +2,66 @@ package com.yoga.footballleague.main
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import android.view.View
-import android.widget.AdapterView
-import android.widget.Toast
-import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.fragment.app.Fragment
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.yoga.footballleague.R
-import com.yoga.footballleague.adapter.CustomAdapter
+import com.yoga.footballleague.adapter.PagerAdapter
 import com.yoga.footballleague.adapter.LeagueAdapter
-import com.yoga.footballleague.behave.invisible
-import com.yoga.footballleague.model.ClubResponse
+import com.yoga.footballleague.fragment.LeagueFragment
+import com.yoga.footballleague.fragment.MatchFragment
+import com.yoga.footballleague.fragment.TeamFragment
 import com.yoga.footballleague.model.Clubs
 import com.yoga.footballleague.model.LeagueData
-import com.yoga.footballleague.repodata.Repository
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener, MainView {
+class MainActivity : AppCompatActivity(){
 
     private lateinit var adapter: LeagueAdapter
     private var items: MutableList<LeagueData> = mutableListOf()
     private var clubs : MutableList<Clubs> = mutableListOf()
     private lateinit var idLeague : String
     private lateinit var presenter: MainPresenter
-    private lateinit var custom : CustomAdapter
-    //private lateinit var spinner: Spinner
+    private lateinit var pager : PagerAdapter
+    private val onNavItemSelect = BottomNavigationView.OnNavigationItemSelectedListener {
+        item -> 
+        when(item.itemId){
+            R.id.bt_team ->{
+                replaceFragment(TeamFragment())
+                return@OnNavigationItemSelectedListener true
+            }
+            R.id.bt_match ->{
+                replaceFragment(MatchFragment())
+                return@OnNavigationItemSelectedListener true
+            }
+            R.id.bt_league ->{
+                replaceFragment(LeagueFragment())
+                return@OnNavigationItemSelectedListener true
+            }
+        }
+        false
+    }
+
+    private fun replaceFragment(fragment: Fragment){
+        val fragmentTransaction = supportFragmentManager.beginTransaction()
+        fragmentTransaction.replace(R.id.frameLayout, fragment)
+        fragmentTransaction.commit()
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        bt_menu.setOnNavigationItemSelectedListener(onNavItemSelect)
+        replaceFragment(TeamFragment())
 
-        val name = resources.getStringArray(R.array.name_list)
-        val image = resources.obtainTypedArray(R.array.image_list)
-        val idleague = resources.getStringArray(R.array.id_league)
-        spin_league.onItemSelectedListener = this
-        custom = CustomAdapter(this, name, idleague, image)
-        spin_league.adapter = custom
-        presenter = MainPresenter(this, Repository())
+
 
         //items.clear()
 
         /*for (i in name.indices){
             items.add(LeagueData(name[i], image.getResourceId(i, 0), idleague[i]))
         }
-        Log.d("value ", items.toString())
-        image.recycle()*/
+        Log.d("value ", items.toString())*/
+
 
 
         /*spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
@@ -60,7 +77,9 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener, Ma
         }*/
     }
 
-    override fun onNothingSelected(p0: AdapterView<*>?) {
+
+
+    /*override fun onNothingSelected(p0: AdapterView<*>?) {
 
     }
 
@@ -74,6 +93,7 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener, Ma
             rv_league.invisible()
         } else {
             data.teams.let {
+                clubs.clear()
                 clubs.addAll(it)
             }
             adapter = LeagueAdapter(clubs)
@@ -84,9 +104,7 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener, Ma
 
     override fun onDataError() {
         Toast.makeText(applicationContext, "Gagal Load", Toast.LENGTH_SHORT).show()
-    }
-
-
+    } */
 }
 
 

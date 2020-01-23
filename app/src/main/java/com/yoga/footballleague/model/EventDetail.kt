@@ -36,18 +36,38 @@ data class EventDetail (
     @field:SerializedName("strHomeGoalDetails")
     val homeGoalDetails : String?,
 
-    @field:SerializedName("strHomeRedCards")
-    val homeRedCards : String?,
-
     @field:SerializedName("strHomeYellowCards")
     val homeYellowCards : String?,
 
-    @field:SerializedName("strAwayGoalDetails")
-    val awayGoalDetails : String?,
+    @field:SerializedName("strHomeLineupGoalkeeper")
+    val strHomeLineupGoalkeeper : String?,
 
-    @field:SerializedName("strAwayRedCards")
-    val awayRedCards : String?,
+    @field:SerializedName("strHomeLineupDefense")
+    val strHomeLineupDefense : String?,
 
-    @field:SerializedName("strAwayYellowCards")
-    val awayYellowCards : String?
+    @field:SerializedName("strHomeLineupMidfield")
+    val strHomeLineupMidfield : String?,
+
+    @field:SerializedName("strHomeLineupForward")
+    val strHomeLineupForward : String?,
+
+    @field:SerializedName("strHomeLineupSubstitutes")
+    val strHomeLineupSubstitutes : String?,
+
+    @field:SerializedName("strAwayLineupGoalkeeper")
+    val strAwayLineupGoalkeeper : String?,
+
+    @field:SerializedName("strAwayLineupDefense")
+    val strAwayLineupDefense : String?,
+
+    @field:SerializedName("strAwayLineupMidfield")
+    val strAwayLineupMidfield : String?,
+
+    @field:SerializedName("strAwayLineupForward")
+    val strAwayLineupForward : String?,
+
+    @field:SerializedName("strAwayLineupSubstitutes")
+    val strAwayLineupSubstitutes : String?
+
+
 ):Parcelable
