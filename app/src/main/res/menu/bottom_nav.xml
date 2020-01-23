@@ -3,14 +3,11 @@
 
     <item
         android:id="@+id/bt_team"
-        android:title="@string/bt_team"
-        />
+        android:title="@string/bt_team" />
     <item
         android:id="@+id/bt_match"
-        android:title="@string/bt_match"
-        />
+        android:title="@string/bt_match" />
     <item
         android:id="@+id/bt_league"
-        android:title="@string/bt_league"
-        />
+        android:title="@string/bt_league" />
 </menu>

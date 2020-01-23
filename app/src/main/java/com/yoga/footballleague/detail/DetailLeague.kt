@@ -1,7 +1,7 @@
 package com.yoga.footballleague.detail
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import com.yoga.footballleague.R
 import com.yoga.footballleague.model.LeagueData
@@ -9,16 +9,16 @@ import com.yoga.footballleague.model.LeagueList
 import com.yoga.footballleague.repodata.Repository
 import kotlinx.android.synthetic.main.activity_detail_league.*
 
-class DetailLeague : AppCompatActivity(),DetailView {
+class DetailLeague : AppCompatActivity(), DetailView {
 
-    companion object{
+    companion object {
         const val EXTRA_LEAGUE = "league"
     }
 
     private lateinit var presenter: DetailPresenter
-    private var name : String = ""
-    private var desc : String = ""
-    private var trophy : String = ""
+    private var name: String = ""
+    private var desc: String = ""
+    private var trophy: String = ""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail_league)

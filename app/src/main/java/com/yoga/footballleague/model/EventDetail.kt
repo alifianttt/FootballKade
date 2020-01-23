@@ -5,69 +5,69 @@ import com.google.gson.annotations.SerializedName
 import kotlinx.android.parcel.Parcelize
 
 @Parcelize
-data class EventDetail (
+data class EventDetail(
     @field:SerializedName("idEvent")
-    val idEvent : String?,
+    val idEvent: String?,
 
     @field:SerializedName("strHomeTeam")
-    val strHomeTeam : String?,
+    val strHomeTeam: String?,
 
     @field:SerializedName("strAwayTeam")
-    val strAwayTeam : String?,
+    val strAwayTeam: String?,
 
     @field:SerializedName("dateEvent")
-    val dateEvent : String?,
+    val dateEvent: String?,
 
     @field:SerializedName("strTime")
-    val strTime : String?,
+    val strTime: String?,
 
     @field:SerializedName("idHomeTeam")
-    val idHomeTeam : String?,
+    val idHomeTeam: String?,
 
     @field:SerializedName("idAwayTeam")
-    val idAwayTeam : String?,
+    val idAwayTeam: String?,
 
     @field:SerializedName("intHomeScore")
-    val intHomeScore : String?,
+    val intHomeScore: String?,
 
     @field:SerializedName("intAwayScore")
-    val intAwayScore : String?,
+    val intAwayScore: String?,
 
     @field:SerializedName("strHomeGoalDetails")
-    val homeGoalDetails : String?,
+    val homeGoalDetails: String?,
 
     @field:SerializedName("strHomeYellowCards")
-    val homeYellowCards : String?,
+    val homeYellowCards: String?,
 
     @field:SerializedName("strHomeLineupGoalkeeper")
-    val strHomeLineupGoalkeeper : String?,
+    val strHomeLineupGoalkeeper: String?,
 
     @field:SerializedName("strHomeLineupDefense")
-    val strHomeLineupDefense : String?,
+    val strHomeLineupDefense: String?,
 
     @field:SerializedName("strHomeLineupMidfield")
-    val strHomeLineupMidfield : String?,
+    val strHomeLineupMidfield: String?,
 
     @field:SerializedName("strHomeLineupForward")
-    val strHomeLineupForward : String?,
+    val strHomeLineupForward: String?,
 
     @field:SerializedName("strHomeLineupSubstitutes")
-    val strHomeLineupSubstitutes : String?,
+    val strHomeLineupSubstitutes: String?,
 
     @field:SerializedName("strAwayLineupGoalkeeper")
-    val strAwayLineupGoalkeeper : String?,
+    val strAwayLineupGoalkeeper: String?,
 
     @field:SerializedName("strAwayLineupDefense")
-    val strAwayLineupDefense : String?,
+    val strAwayLineupDefense: String?,
 
     @field:SerializedName("strAwayLineupMidfield")
-    val strAwayLineupMidfield : String?,
+    val strAwayLineupMidfield: String?,
 
     @field:SerializedName("strAwayLineupForward")
-    val strAwayLineupForward : String?,
+    val strAwayLineupForward: String?,
 
     @field:SerializedName("strAwayLineupSubstitutes")
-    val strAwayLineupSubstitutes : String?
+    val strAwayLineupSubstitutes: String?
 
 
-):Parcelable
+) : Parcelable

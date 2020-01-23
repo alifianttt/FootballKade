@@ -2,14 +2,11 @@ package com.yoga.footballleague.fragment
 
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.EditText
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-
 import com.yoga.footballleague.R
 import com.yoga.footballleague.adapter.MatchAdapter
 import com.yoga.footballleague.adapter.TeamAdapter
@@ -28,7 +25,7 @@ import kotlinx.android.synthetic.main.fragment_league.*
 class LeagueFragment : Fragment(), MatchIntf {
 
     private var items: MutableList<LeagueData> = mutableListOf()
-    private var events : MutableList<EventDetail> = mutableListOf()
+    private var events: MutableList<EventDetail> = mutableListOf()
     private lateinit var presenter: MatchPresenter
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -44,15 +41,15 @@ class LeagueFragment : Fragment(), MatchIntf {
         val name = resources.getStringArray(R.array.name_list)
         val image = resources.obtainTypedArray(R.array.image_list)
         val idleague = resources.getStringArray(R.array.id_league)
-        for (i in name.indices){
+        for (i in name.indices) {
             items.add(LeagueData(name[i], image.getResourceId(i, 0), idleague[i]))
         }
         presenter = MatchPresenter(this, Repository())
         rv_league.adapter = TeamAdapter(items)
         rv_league.layoutManager = LinearLayoutManager(context)
-        btn_search.setOnClickListener{
+        btn_search.setOnClickListener {
             val event = edt_search.text.toString()
-            if (event.isEmpty()){
+            if (event.isEmpty()) {
                 rv_league.adapter = TeamAdapter(items)
                 rv_league.layoutManager = LinearLayoutManager(context)
             } else {
@@ -64,7 +61,7 @@ class LeagueFragment : Fragment(), MatchIntf {
     }
 
     override fun DataLoad(data: EventList?) {
-        if (data?.event == null){
+        if (data?.event == null) {
             rv_league.invisible()
         } else {
             data.event.let {

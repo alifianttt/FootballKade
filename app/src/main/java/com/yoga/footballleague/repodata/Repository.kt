@@ -18,12 +18,14 @@ class Repository {
                 override fun onFailure(call: Call<LeagueList>, t: Throwable) {
                     callback.onDataError()
                 }
+
                 override fun onResponse(
                     call: Call<LeagueList>,
-                    response: Response<LeagueList>){
+                    response: Response<LeagueList>
+                ) {
 
                     response.let {
-                        if(it.isSuccessful){
+                        if (it.isSuccessful) {
                             callback.DataLoad(it.body())
                         } else {
                             callback.onDataError()
@@ -34,42 +36,41 @@ class Repository {
             })
     }
 
-    fun getNextMatch(id: String, callback: RepoCallback<EventList>){
+    fun getNextMatch(id: String, callback: RepoCallback<EventList>) {
         BaseRest
             .createService(RepoApi::class.java)
             .getNextMatch(id)
-            .enqueue(object : Callback<EventList>{
+            .enqueue(object : Callback<EventList> {
                 override fun onFailure(call: Call<EventList>, t: Throwable) {
                     callback.onDataError()
                 }
 
                 override fun onResponse(call: Call<EventList>, response: Response<EventList>) {
-                       response.let {
-                           if (it.isSuccessful){
-                               callback.DataLoad(it.body())
-                           } else {
-                               callback.onDataError()
-                           }
-                       }
+                    response.let {
+                        if (it.isSuccessful) {
+                            callback.DataLoad(it.body())
+                        } else {
+                            callback.onDataError()
+                        }
+                    }
                 }
 
             })
     }
 
 
-    
-    fun getPevtMatch(id: String, callback: RepoCallback<EventList>){
+    fun getPevtMatch(id: String, callback: RepoCallback<EventList>) {
         BaseRest
             .createService(RepoApi::class.java)
             .getPastMatch(id)
-            .enqueue(object : Callback<EventList>{
+            .enqueue(object : Callback<EventList> {
                 override fun onFailure(call: Call<EventList>, t: Throwable) {
                     callback.onDataError()
                 }
 
                 override fun onResponse(call: Call<EventList>, response: Response<EventList>) {
                     response.let {
-                        if (it.isSuccessful){
+                        if (it.isSuccessful) {
                             callback.DataLoad(it.body())
                         } else {
                             callback.onDataError()
@@ -80,18 +81,18 @@ class Repository {
             })
     }
 
-    fun getEvents(id: String, callback: RepoCallback<EventList>){
+    fun getEvents(id: String, callback: RepoCallback<EventList>) {
         BaseRest
             .createService(RepoApi::class.java)
             .getEvents(id)
-            .enqueue(object : Callback<EventList>{
+            .enqueue(object : Callback<EventList> {
                 override fun onFailure(call: Call<EventList>, t: Throwable) {
                     callback.onDataError()
                 }
 
                 override fun onResponse(call: Call<EventList>, response: Response<EventList>) {
                     response.let {
-                        if (it.isSuccessful){
+                        if (it.isSuccessful) {
                             callback.DataLoad(it.body())
                         } else {
                             callback.onDataError()
@@ -102,18 +103,18 @@ class Repository {
             })
     }
 
-    fun getEvent(id: String, callback: RepoCallback<EventList>){
+    fun getEvent(id: String, callback: RepoCallback<EventList>) {
         BaseRest
             .createService(RepoApi::class.java)
             .getEvent(id)
-            .enqueue(object : Callback<EventList>{
+            .enqueue(object : Callback<EventList> {
                 override fun onFailure(call: Call<EventList>, t: Throwable) {
                     callback.onDataError()
                 }
 
                 override fun onResponse(call: Call<EventList>, response: Response<EventList>) {
                     response.let {
-                        if (it.isSuccessful){
+                        if (it.isSuccessful) {
                             callback.DataLoad(it.body())
                         } else {
                             callback.onDataError()
@@ -124,11 +125,11 @@ class Repository {
             })
     }
 
-    fun getTeams(id: String, callback: RepoCallback<ClubResponse>){
+    fun getTeams(id: String, callback: RepoCallback<ClubResponse>) {
         BaseRest
             .createService(RepoApi::class.java)
             .getTeams(id)
-            .enqueue(object : Callback<ClubResponse>{
+            .enqueue(object : Callback<ClubResponse> {
                 override fun onFailure(call: Call<ClubResponse>, t: Throwable) {
                     callback.onDataError()
                 }
@@ -138,9 +139,9 @@ class Repository {
                     response: Response<ClubResponse>
                 ) {
                     response.let {
-                        if (it.isSuccessful){
+                        if (it.isSuccessful) {
                             callback.DataLoad(it.body())
-                        } else{
+                        } else {
                             callback.onDataError()
                         }
                     }
@@ -148,7 +149,7 @@ class Repository {
             })
     }
 
-    fun getTeamName(t: String, callback: RepoCallback<ClubResponse>){
+    fun getTeamName(t: String, callback: RepoCallback<ClubResponse>) {
         BaseRest
             .createService(RepoApi::class.java)
             .getTeamName(t)

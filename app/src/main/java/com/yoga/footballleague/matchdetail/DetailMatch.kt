@@ -1,19 +1,17 @@
 package com.yoga.footballleague.matchdetail
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import com.yoga.footballleague.R
 import com.yoga.footballleague.model.ClubResponse
-import com.yoga.footballleague.model.Clubs
 import com.yoga.footballleague.model.EventDetail
-import com.yoga.footballleague.model.EventList
 import com.yoga.footballleague.repodata.Repository
 import kotlinx.android.synthetic.main.activity_detail_match.*
 
 class DetailMatch : AppCompatActivity(), MatchDetailView {
 
-    companion object{
+    companion object {
         const val EXTRA_MATCH = "match"
     }
 
@@ -29,7 +27,7 @@ class DetailMatch : AppCompatActivity(), MatchDetailView {
         showInit(match)
     }
 
-    private fun showInit(item: EventDetail){
+    private fun showInit(item: EventDetail) {
         tv_date_match.text = item.dateEvent
         str_gk_home.text = item.strHomeLineupGoalkeeper
         str_def_home.text = item.strHomeLineupDefense
@@ -42,13 +40,13 @@ class DetailMatch : AppCompatActivity(), MatchDetailView {
         str_mid_away.text = item.strAwayLineupMidfield
         str_stt_away.text = item.strAwayLineupForward
         str_sub_away.text = item.strAwayLineupSubstitutes
-        if (item.intHomeScore == null){
+        if (item.intHomeScore == null) {
             score_home_dtl.text = "0"
         } else {
-        score_home_dtl.text = item.intHomeScore
+            score_home_dtl.text = item.intHomeScore
         }
 
-        if (item.intAwayScore == null){
+        if (item.intAwayScore == null) {
             score_away_dtl.text = "0"
         } else {
             score_away_dtl.text = item.intAwayScore

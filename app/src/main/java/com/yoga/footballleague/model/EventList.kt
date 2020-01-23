@@ -2,12 +2,12 @@ package com.yoga.footballleague.model
 
 import com.google.gson.annotations.SerializedName
 
-data class EventList (
+data class EventList(
     @SerializedName("events")
-    val events : List<EventDetail>? = null,
+    val events: List<EventDetail>? = null,
 
     @SerializedName("event")
-    val event : List<EventDetail>? = null
+    val event: List<EventDetail>? = null
 
 
 )

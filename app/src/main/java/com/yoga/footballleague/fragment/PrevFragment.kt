@@ -3,14 +3,13 @@ package com.yoga.footballleague.fragment
 
 import android.annotation.SuppressLint
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-
 import com.yoga.footballleague.R
 import com.yoga.footballleague.adapter.MatchAdapter
 import com.yoga.footballleague.behave.invisible
@@ -25,12 +24,12 @@ import kotlinx.android.synthetic.main.fragment_prev.*
 /**
  * A simple [Fragment] subclass.
  */
-class PrevFragment : Fragment(), AdapterView.OnItemSelectedListener, MatchIntf{
+class PrevFragment : Fragment(), AdapterView.OnItemSelectedListener, MatchIntf {
 
-    private var match : MutableList<EventDetail> = mutableListOf()
+    private var match: MutableList<EventDetail> = mutableListOf()
     private lateinit var presenter: MatchPresenter
     private var items: MutableList<LeagueData> = mutableListOf()
-    private lateinit var idLeague : String
+    private lateinit var idLeague: String
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -45,7 +44,7 @@ class PrevFragment : Fragment(), AdapterView.OnItemSelectedListener, MatchIntf{
         val name = resources.getStringArray(R.array.name_list)
         val image = resources.obtainTypedArray(R.array.image_list)
         val idleague = resources.getStringArray(R.array.id_league)
-        for (i in name.indices){
+        for (i in name.indices) {
             items.add(LeagueData(name[i], image.getResourceId(i, 0), idleague[i]))
         }
         spin_prev.onItemSelectedListener = this
@@ -66,7 +65,7 @@ class PrevFragment : Fragment(), AdapterView.OnItemSelectedListener, MatchIntf{
     }
 
     override fun DataLoad(data: EventList?) {
-        if (data?.events == null){
+        if (data?.events == null) {
             rv_prev.invisible()
         } else {
             data.events.let {

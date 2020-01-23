@@ -2,16 +2,14 @@ package com.yoga.footballleague.fragment
 
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
-import android.widget.SpinnerAdapter
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-
 import com.yoga.footballleague.R
 import com.yoga.footballleague.adapter.LeagueAdapter
 import com.yoga.footballleague.behave.invisible
@@ -28,10 +26,10 @@ import kotlinx.android.synthetic.main.fragment_team.*
  */
 class TeamFragment : Fragment(), AdapterView.OnItemSelectedListener, MainView {
 
-    private lateinit var adapter : LeagueAdapter
-    private var clubs : MutableList<Clubs> = mutableListOf()
+    private lateinit var adapter: LeagueAdapter
+    private var clubs: MutableList<Clubs> = mutableListOf()
     private var items: MutableList<LeagueData> = mutableListOf()
-    private lateinit var idLeague : String
+    private lateinit var idLeague: String
     private lateinit var presenter: MainPresenter
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -47,7 +45,7 @@ class TeamFragment : Fragment(), AdapterView.OnItemSelectedListener, MainView {
         val name = resources.getStringArray(R.array.name_list)
         val image = resources.obtainTypedArray(R.array.image_list)
         val idleague = resources.getStringArray(R.array.id_league)
-        for (i in name.indices){
+        for (i in name.indices) {
             items.add(LeagueData(name[i], image.getResourceId(i, 0), idleague[i]))
         }
         spinn_liga.onItemSelectedListener = this
@@ -67,7 +65,7 @@ class TeamFragment : Fragment(), AdapterView.OnItemSelectedListener, MainView {
     }
 
     override fun DataLoad(data: ClubResponse?) {
-        if (data?.teams == null){
+        if (data?.teams == null) {
             rv_team.invisible()
         } else {
             data.teams.let {

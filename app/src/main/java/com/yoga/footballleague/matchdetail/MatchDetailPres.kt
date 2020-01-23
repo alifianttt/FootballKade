@@ -1,14 +1,13 @@
 package com.yoga.footballleague.matchdetail
 
 import com.yoga.footballleague.model.ClubResponse
-import com.yoga.footballleague.model.EventList
 import com.yoga.footballleague.repodata.RepoCallback
 import com.yoga.footballleague.repodata.Repository
 
-class MatchDetailPres(private val view: MatchDetailView, private val repo:Repository) {
+class MatchDetailPres(private val view: MatchDetailView, private val repo: Repository) {
 
-    fun getTeamHome(l: String){
-        repo.getTeamName(l, object : RepoCallback<ClubResponse>{
+    fun getTeamHome(l: String) {
+        repo.getTeamName(l, object : RepoCallback<ClubResponse> {
             override fun DataLoad(data: ClubResponse?) {
                 view.DataLoad(data)
             }
@@ -20,8 +19,8 @@ class MatchDetailPres(private val view: MatchDetailView, private val repo:Reposi
         })
     }
 
-    fun getTeamAway(l: String){
-        repo.getTeamName(l, object : RepoCallback<ClubResponse>{
+    fun getTeamAway(l: String) {
+        repo.getTeamName(l, object : RepoCallback<ClubResponse> {
             override fun DataLoad(data: ClubResponse?) {
                 view.showBadge(data)
             }

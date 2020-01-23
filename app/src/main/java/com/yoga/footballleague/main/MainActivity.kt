@@ -1,12 +1,12 @@
 package com.yoga.footballleague.main
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.yoga.footballleague.R
-import com.yoga.footballleague.adapter.PagerAdapter
 import com.yoga.footballleague.adapter.LeagueAdapter
+import com.yoga.footballleague.adapter.PagerAdapter
 import com.yoga.footballleague.fragment.LeagueFragment
 import com.yoga.footballleague.fragment.MatchFragment
 import com.yoga.footballleague.fragment.TeamFragment
@@ -14,26 +14,25 @@ import com.yoga.footballleague.model.Clubs
 import com.yoga.footballleague.model.LeagueData
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : AppCompatActivity(){
+class MainActivity : AppCompatActivity() {
 
     private lateinit var adapter: LeagueAdapter
     private var items: MutableList<LeagueData> = mutableListOf()
-    private var clubs : MutableList<Clubs> = mutableListOf()
-    private lateinit var idLeague : String
+    private var clubs: MutableList<Clubs> = mutableListOf()
+    private lateinit var idLeague: String
     private lateinit var presenter: MainPresenter
-    private lateinit var pager : PagerAdapter
-    private val onNavItemSelect = BottomNavigationView.OnNavigationItemSelectedListener {
-        item -> 
-        when(item.itemId){
-            R.id.bt_team ->{
+    private lateinit var pager: PagerAdapter
+    private val onNavItemSelect = BottomNavigationView.OnNavigationItemSelectedListener { item ->
+        when (item.itemId) {
+            R.id.bt_team -> {
                 replaceFragment(TeamFragment())
                 return@OnNavigationItemSelectedListener true
             }
-            R.id.bt_match ->{
+            R.id.bt_match -> {
                 replaceFragment(MatchFragment())
                 return@OnNavigationItemSelectedListener true
             }
-            R.id.bt_league ->{
+            R.id.bt_league -> {
                 replaceFragment(LeagueFragment())
                 return@OnNavigationItemSelectedListener true
             }
@@ -41,7 +40,7 @@ class MainActivity : AppCompatActivity(){
         false
     }
 
-    private fun replaceFragment(fragment: Fragment){
+    private fun replaceFragment(fragment: Fragment) {
         val fragmentTransaction = supportFragmentManager.beginTransaction()
         fragmentTransaction.replace(R.id.frameLayout, fragment)
         fragmentTransaction.commit()
@@ -54,14 +53,12 @@ class MainActivity : AppCompatActivity(){
         replaceFragment(TeamFragment())
 
 
-
         //items.clear()
 
         /*for (i in name.indices){
             items.add(LeagueData(name[i], image.getResourceId(i, 0), idleague[i]))
         }
         Log.d("value ", items.toString())*/
-
 
 
         /*spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
@@ -76,7 +73,6 @@ class MainActivity : AppCompatActivity(){
 
         }*/
     }
-
 
 
     /*override fun onNothingSelected(p0: AdapterView<*>?) {

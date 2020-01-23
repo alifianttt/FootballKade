@@ -3,7 +3,6 @@
     <string name="league_name">Premier League</string>
     <string name="detail">Liga ingrris adalah liga yang sangat keras</string>
     <string name="date_match">2019 11 03</string>
-    <string name="team_name">Liverpool</string>
     <string name="score">3</string>
     <string name="vs">VS</string>
     <string-array name="name_list">
@@ -44,10 +43,8 @@
     </string-array>
 
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="bt_team">Team</string>
     <string name="bt_match">Match</string>
-    <string name="bt_fav">Favorite</string>
     <string name="date_tv">14-06-1880</string>
     <string name="name_team">Liverpool</string>
     <string name="score_team">2</string>
