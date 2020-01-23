@@ -9,5 +9,4 @@ data class EventList(
     @SerializedName("event")
     val event: List<EventDetail>? = null
 
-
 )
