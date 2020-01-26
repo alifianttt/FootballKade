@@ -8,25 +8,41 @@ import com.yoga.footballleague.R
 import com.yoga.footballleague.model.FavoriteMatch
 import kotlinx.android.synthetic.main.item_match.view.*
 
-class FavoriteAdapter(private val favorite: List<FavoriteMatch>): RecyclerView.Adapter<FavoriteAdapter.FavoriteHolder>() {
+class FavoriteAdapter(
+    private val favorite: List<FavoriteMatch>,
+    private val listener: (FavoriteMatch) -> Unit
+) : RecyclerView.Adapter<FavoriteAdapter.FavoriteHolder>() {
     class FavoriteHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        fun bindView(get:FavoriteMatch){
+        fun bindView(get: FavoriteMatch, listener: (FavoriteMatch) -> Unit) {
             itemView.tv_name_home.text = get.teamHomeName
             itemView.tv_name_away.text = get.teamAwayName
             itemView.tv_score_home.text = get.scoreHome
             itemView.tv_score_away.text = get.scoreAway
             itemView.tv_date.text = get.dateMatch
+            itemView.setOnClickListener {
+                /*val i = Intent(it.context, DetailMatch::class.java).apply {
+                    putExtra("id", get.idEvent)
+                }
+                it.context.startActivity(i)*/
+                listener(get)
+            }
         }
     }
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
-    ): FavoriteHolder = FavoriteHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_match, parent, false))
+    ): FavoriteHolder = FavoriteHolder(
+        LayoutInflater.from(parent.context).inflate(
+            R.layout.item_match,
+            parent,
+            false
+        )
+    )
 
     override fun getItemCount(): Int = favorite.size
 
     override fun onBindViewHolder(holder: FavoriteHolder, position: Int) {
-        holder.bindView(favorite[position])
+        holder.bindView(favorite[position], listener)
     }
 }

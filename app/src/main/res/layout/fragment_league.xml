@@ -35,6 +35,7 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_league"
             android:layout_width="match_parent"
+            android:paddingBottom="15dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             tools:ignore="MissingConstraints"

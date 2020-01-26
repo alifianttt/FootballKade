@@ -13,11 +13,13 @@ import com.yoga.footballleague.adapter.TeamAdapter
 import com.yoga.footballleague.behave.invisible
 import com.yoga.footballleague.match.MatchIntf
 import com.yoga.footballleague.match.MatchPresenter
+import com.yoga.footballleague.matchdetail.DetailMatch
 import com.yoga.footballleague.model.EventDetail
 import com.yoga.footballleague.model.EventList
 import com.yoga.footballleague.model.LeagueData
 import com.yoga.footballleague.repodata.Repository
 import kotlinx.android.synthetic.main.fragment_league.*
+import org.jetbrains.anko.startActivity
 
 /**
  * A simple [Fragment] subclass.
@@ -64,12 +66,20 @@ class LeagueFragment : Fragment(), MatchIntf {
         if (data?.event == null) {
             rv_league.invisible()
         } else {
-            data.event.let {
-                events.clear()
-                events.addAll(it)
-            }
 
-            rv_league.adapter = MatchAdapter(events)
+            data.event.let {
+                val filter = data.event.filter {
+                    it.strSport == "Soccer"
+                }
+                events.clear()
+                events.addAll(filter)
+            }
+            rv_league.adapter = MatchAdapter(events) {
+                context?.startActivity<DetailMatch>(
+                    "id" to "${it.idEvent}",
+                    "nameHome" to "${it.strHomeTeam}", "nameAway" to "${it.strAwayTeam}"
+                )
+            }
             rv_league.layoutManager = LinearLayoutManager(context)
         }
     }

@@ -20,11 +20,11 @@ interface RepoApi {
     @GET("searchevents.php")
     fun getEvents(@Query("e") e: String): Call<EventList>
 
-    @GET("search_all_teams.php")
-    fun getTeams(@Query("l") id: String): Call<ClubResponse>
-
     @GET("lookupevent.php")
     fun getEvent(@Query("id") id: String): Call<EventList>
+
+    @GET("search_all_teams.php")
+    fun getTeams(@Query("l") id: String): Call<ClubResponse>
 
     @GET("searchteams.php")
     fun getTeamName(@Query("t") t: String): Call<ClubResponse>

@@ -14,11 +14,13 @@ import com.yoga.footballleague.adapter.MatchAdapter
 import com.yoga.footballleague.behave.invisible
 import com.yoga.footballleague.match.MatchIntf
 import com.yoga.footballleague.match.MatchPresenter
+import com.yoga.footballleague.matchdetail.DetailMatch
 import com.yoga.footballleague.model.EventDetail
 import com.yoga.footballleague.model.EventList
 import com.yoga.footballleague.model.LeagueData
 import com.yoga.footballleague.repodata.Repository
 import kotlinx.android.synthetic.main.fragment_next.*
+import org.jetbrains.anko.startActivity
 
 /**
  * A simple [Fragment] subclass.
@@ -62,7 +64,12 @@ class NextFragment : Fragment(), AdapterView.OnItemSelectedListener, MatchIntf {
                 match.clear()
                 match.addAll(it)
             }
-            rv_next.adapter = MatchAdapter(match)
+            rv_next.adapter = MatchAdapter(match) {
+                context?.startActivity<DetailMatch>(
+                    "id" to "${it.idEvent}",
+                    "nameHome" to "${it.strHomeTeam}", "nameAway" to "${it.strAwayTeam}"
+                )
+            }
             rv_next.layoutManager = LinearLayoutManager(context)
         }
     }

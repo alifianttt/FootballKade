@@ -18,26 +18,11 @@ data class EventDetail(
     @field:SerializedName("dateEvent")
     val dateEvent: String?,
 
-    @field:SerializedName("strTime")
-    val strTime: String?,
-
-    @field:SerializedName("idHomeTeam")
-    val idHomeTeam: String?,
-
-    @field:SerializedName("idAwayTeam")
-    val idAwayTeam: String?,
-
     @field:SerializedName("intHomeScore")
     val intHomeScore: String?,
 
     @field:SerializedName("intAwayScore")
     val intAwayScore: String?,
-
-    @field:SerializedName("strHomeGoalDetails")
-    val homeGoalDetails: String?,
-
-    @field:SerializedName("strHomeYellowCards")
-    val homeYellowCards: String?,
 
     @field:SerializedName("strHomeLineupGoalkeeper")
     val strHomeLineupGoalkeeper: String?,
@@ -67,7 +52,10 @@ data class EventDetail(
     val strAwayLineupForward: String?,
 
     @field:SerializedName("strAwayLineupSubstitutes")
-    val strAwayLineupSubstitutes: String?
+    val strAwayLineupSubstitutes: String?,
+
+    @field:SerializedName("strSport")
+    val strSport: String?
 
 
 ) : Parcelable

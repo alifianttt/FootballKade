@@ -28,6 +28,7 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_prev"
+            android:paddingBottom="25dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             tools:ignore="MissingConstraints"

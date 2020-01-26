@@ -1,16 +1,17 @@
 package com.yoga.footballleague.adapter
 
-import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.yoga.footballleague.R
-import com.yoga.footballleague.matchdetail.DetailMatch
 import com.yoga.footballleague.model.EventDetail
 import kotlinx.android.synthetic.main.item_match.view.*
 
-class MatchAdapter(private val Matchlist: List<EventDetail>) :
+class MatchAdapter(
+    private val Matchlist: List<EventDetail>,
+    private val listener: (EventDetail) -> Unit
+) :
     RecyclerView.Adapter<MatchAdapter.holderView>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): holderView = holderView(
         LayoutInflater.from(parent.context).inflate(
@@ -21,11 +22,11 @@ class MatchAdapter(private val Matchlist: List<EventDetail>) :
     override fun getItemCount(): Int = Matchlist.size
 
     override fun onBindViewHolder(holder: holderView, position: Int) {
-        holder.bindView(Matchlist[position])
+        holder.bindView(Matchlist[position], listener)
     }
 
     class holderView(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        fun bindView(match: EventDetail) {
+        fun bindView(match: EventDetail, listener: (EventDetail) -> Unit) {
             itemView.tv_name_home.text = match.strHomeTeam
             itemView.tv_name_away.text = match.strAwayTeam
             itemView.tv_date.text = match.dateEvent
@@ -43,10 +44,11 @@ class MatchAdapter(private val Matchlist: List<EventDetail>) :
             }
 
             itemView.setOnClickListener {
-                val intent = Intent(it.context, DetailMatch::class.java).apply {
+                /*val intent = Intent(it.context, DetailMatch::class.java).apply {
                     putExtra(DetailMatch.EXTRA_MATCH, match)
                 }
-                it.context.startActivity(intent)
+                it.context.startActivity(intent)*/
+                listener(match)
             }
         }
     }
