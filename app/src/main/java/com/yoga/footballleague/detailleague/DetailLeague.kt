@@ -1,4 +1,4 @@
-package com.yoga.footballleague.detail
+package com.yoga.footballleague.detailleague
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity

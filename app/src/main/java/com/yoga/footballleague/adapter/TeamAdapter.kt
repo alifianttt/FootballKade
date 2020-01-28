@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.yoga.footballleague.R
-import com.yoga.footballleague.detail.DetailLeague
+import com.yoga.footballleague.detailleague.DetailLeague
 import com.yoga.footballleague.model.LeagueData
 import kotlinx.android.synthetic.main.item_league.view.*
 
