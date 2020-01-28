@@ -33,6 +33,8 @@ class DetailPresenterTest {
 
         detailPresenter = DetailPresenter(view, repo)
     }
+
+    //Tes untuk mendapatkan detail liga
     @Test
     fun getDetail() {
         val id = "4328"

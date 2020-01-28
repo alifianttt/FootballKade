@@ -34,7 +34,7 @@ class MatchPresenterTest {
         presenter = MatchPresenter(view, repo)
 
     }
-
+    //Unit Test untuk mendapatkan next match
     @Test
     fun getNextMatch() {
         val id = "4326"
@@ -47,6 +47,7 @@ class MatchPresenterTest {
         Mockito.verify(view).DataLoad(eventList)
     }
 
+    //Unit Test untuk mendapatkan next match
     @Test
     fun getPrevMatch() {
         val id = "4326"
@@ -60,6 +61,7 @@ class MatchPresenterTest {
         Mockito.verify(view).DataLoad(eventList)
     }
 
+    //Unit Test untuk mencari pertandingan
     @Test
     fun getEvents() {
         val e = "Liverpool"

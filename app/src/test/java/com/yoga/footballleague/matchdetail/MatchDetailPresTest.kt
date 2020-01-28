@@ -38,6 +38,7 @@ class MatchDetailPresTest {
         MockitoAnnotations.initMocks(this)
         presenter = MatchDetailPres(view, repository)
     }
+    //Unit Test untuk mendapatkan detail match
     @Test
     fun getEventDetail() {
         val id = "673963"
@@ -49,7 +50,7 @@ class MatchDetailPresTest {
         }
         Mockito.verify(view).getEvent(eventList)
     }
-
+    //Unit Test untuk mendapatkan detail team untuk diambil badgenya
     @Test
     fun getTeamHome() {
         val name = "Liverpool"
@@ -62,6 +63,7 @@ class MatchDetailPresTest {
         Mockito.verify(view).DataLoad(badge)
     }
 
+    //Unit Test untuk mendapatkan detail team untuk diambil badgenya
     @Test
     fun getTeamAway() {
         val name = "Shrewsbury"

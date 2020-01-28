@@ -72,8 +72,10 @@ class TeamFragment : Fragment(), AdapterView.OnItemSelectedListener, MainView {
                 clubs.clear()
                 clubs.addAll(it)
             }
-            rv_team.adapter = LeagueAdapter(clubs)
-            rv_team.layoutManager = LinearLayoutManager(context)
+                rv_team?.adapter = LeagueAdapter(clubs)
+                rv_team?.layoutManager = LinearLayoutManager(context)
+
+
         }
     }
 
