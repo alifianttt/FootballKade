@@ -52,8 +52,8 @@ class LeagueFragment : Fragment(), MatchIntf {
         btn_search.setOnClickListener {
             val event = edt_search.text.toString()
             if (event.isEmpty()) {
-                rv_league.adapter = TeamAdapter(items)
-                rv_league.layoutManager = LinearLayoutManager(context)
+                rv_league?.adapter = TeamAdapter(items)
+                rv_league?.layoutManager = LinearLayoutManager(context)
             } else {
                 presenter.getEvents(event)
             }
@@ -74,7 +74,7 @@ class LeagueFragment : Fragment(), MatchIntf {
                 events.clear()
                 events.addAll(filter)
             }
-            rv_league.adapter = MatchAdapter(events) {
+            rv_league?.adapter = MatchAdapter(events) {
                 context?.startActivity<DetailMatch>(
                     "id" to "${it.idEvent}",
                     "nameHome" to "${it.strHomeTeam}", "nameAway" to "${it.strAwayTeam}"

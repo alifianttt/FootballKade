@@ -42,8 +42,8 @@ class FavoriteFragment : Fragment() {
                 "nameHome" to "${it.teamHomeName}", "nameAway" to "${it.teamAwayName}"
             )
         }
-        rv_fav.adapter = adapter
-        rv_fav.layoutManager = LinearLayoutManager(context)
+        rv_fav?.adapter = adapter
+        rv_fav?.layoutManager = LinearLayoutManager(context)
         showFav()
         Log.d("Data db", favorites.toString())
     }

@@ -30,18 +30,15 @@ class SearchTest {
     fun inputTeam(){
         onView(withId(spinn_liga))
             .check(matches(isDisplayed()))
-        onView(withId(rv_team))
-            .check(matches(isDisplayed()))
         onView(withId(bt_league)).perform(click())
 
         onView(withId(edt_search))
             .perform(typeText("Liverpool"), closeSoftKeyboard())
         onView(withId(btn_search)).perform(click())
+        Thread.sleep(4000)
 
         onView(withId(rv_league))
             .check(matches(isDisplayed()))
-        onView(withId(rv_league)).perform(
-            RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(0, click()))
 
     }
 }

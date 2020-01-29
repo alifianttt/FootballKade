@@ -74,14 +74,14 @@ class PrevFragment : Fragment(), AdapterView.OnItemSelectedListener, MatchIntf {
                 match.clear()
                 match.addAll(it)
             }
-            rv_prev.adapter = MatchAdapter(match) {
+            rv_prev?.adapter = MatchAdapter(match) {
 
                 context?.startActivity<DetailMatch>(
                     "id" to "${it.idEvent}",
                     "nameHome" to "${it.strHomeTeam}", "nameAway" to "${it.strAwayTeam}"
                 )
             }
-            rv_prev.layoutManager = LinearLayoutManager(context)
+            rv_prev?.layoutManager = LinearLayoutManager(context)
         }
     }
 

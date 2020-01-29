@@ -64,13 +64,13 @@ class NextFragment : Fragment(), AdapterView.OnItemSelectedListener, MatchIntf {
                 match.clear()
                 match.addAll(it)
             }
-            rv_next.adapter = MatchAdapter(match) {
+            rv_next?.adapter = MatchAdapter(match) {
                 context?.startActivity<DetailMatch>(
                     "id" to "${it.idEvent}",
                     "nameHome" to "${it.strHomeTeam}", "nameAway" to "${it.strAwayTeam}"
                 )
             }
-            rv_next.layoutManager = LinearLayoutManager(context)
+            rv_next?.layoutManager = LinearLayoutManager(context)
         }
     }
 
