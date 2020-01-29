@@ -40,4 +40,16 @@ class MatchPresenter(private val view: MatchIntf, private val repo: Repository) 
             }
         })
     }
+
+    fun getTable(l: String){
+        repo.getTable(l, object : RepoCallback<EventList>{
+            override fun DataLoad(data: EventList?) {
+                view.DataLoad(data)
+            }
+
+            override fun onDataError() {
+                view.onDataError()
+            }
+        })
+    }
 }

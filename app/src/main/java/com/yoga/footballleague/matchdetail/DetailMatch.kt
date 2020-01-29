@@ -105,7 +105,7 @@ class DetailMatch : AppCompatActivity(), MatchDetailView {
 
     override fun DataLoad(data: ClubResponse?) {
         data?.teams.let {
-            badge = Clubs(it?.get(0)?.teamId, it?.get(0)?.teamName, it?.get(0)?.strTeamBadge)
+            badge = Clubs(it?.get(0)?.teamId, it?.get(0)?.teamName, it?.get(0)?.strTeamBadge, it?.get(0)?.strDescriptionEN)
             val away = it?.get(0)?.strTeamBadge
             Glide.with(applicationContext)
                 .load(away)

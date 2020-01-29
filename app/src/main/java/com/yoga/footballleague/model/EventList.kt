@@ -7,6 +7,8 @@ data class EventList(
     val events: List<EventDetail>? = null,
 
     @SerializedName("event")
-    val event: List<EventDetail>? = null
+    val event: List<EventDetail>? = null,
 
+    @SerializedName("table")
+    val table: List<TableItem>? = null
 )

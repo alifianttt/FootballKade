@@ -60,4 +60,12 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="favorites">Favorite</string>
+    <string name="team">Team</string>
+    <string name="play">Play</string>
+    <string name="win">Win</string>
+    <string name="draw">Draw</string>
+    <string name="gf">GF</string>
+    <string name="ga">GA</string>
+    <string name="gd">GD</string>
+    <string name="lose">Lose</string>
 </resources>

@@ -1,6 +1,7 @@
 package com.yoga.footballleague.main
 
 import com.yoga.footballleague.model.ClubResponse
+import com.yoga.footballleague.model.EventList
 import com.yoga.footballleague.repodata.RepoCallback
 import com.yoga.footballleague.repodata.Repository
 
@@ -16,4 +17,18 @@ class MainPresenter(private val view: MainView, private val repository: Reposito
             }
         })
     }
+
+    fun getTeamsDetail(n: String){
+        repository.getTeamName(n, object : RepoCallback<ClubResponse>{
+            override fun DataLoad(data: ClubResponse?) {
+                view.DataLoad(data)
+            }
+
+            override fun onDataError() {
+                view.onDataError()
+            }
+        })
+    }
+
+
 }

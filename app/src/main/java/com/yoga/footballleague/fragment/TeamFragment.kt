@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.yoga.footballleague.R
 import com.yoga.footballleague.adapter.LeagueAdapter
 import com.yoga.footballleague.behave.invisible
+import com.yoga.footballleague.detailteam.DetailTeam
 import com.yoga.footballleague.main.MainPresenter
 import com.yoga.footballleague.main.MainView
 import com.yoga.footballleague.model.ClubResponse
@@ -20,6 +21,7 @@ import com.yoga.footballleague.model.Clubs
 import com.yoga.footballleague.model.LeagueData
 import com.yoga.footballleague.repodata.Repository
 import kotlinx.android.synthetic.main.fragment_team.*
+import org.jetbrains.anko.startActivity
 
 /**
  * A simple [Fragment] subclass.
@@ -72,7 +74,12 @@ class TeamFragment : Fragment(), AdapterView.OnItemSelectedListener, MainView {
                 clubs.clear()
                 clubs.addAll(it)
             }
-                rv_team?.adapter = LeagueAdapter(clubs)
+                rv_team?.adapter = LeagueAdapter(clubs){
+                    context?.startActivity<DetailTeam>(
+                        "idTeam" to "${it.teamId}",
+                        "nameTeam" to "${it.teamName}"
+                    )
+                }
                 rv_team?.layoutManager = LinearLayoutManager(context)
 
 

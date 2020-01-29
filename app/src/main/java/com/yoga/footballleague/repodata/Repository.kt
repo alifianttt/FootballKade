@@ -171,4 +171,25 @@ class Repository {
                 }
             })
     }
+
+    fun getTable(l: String, callback: RepoCallback<EventList>){
+        BaseRest
+            .createService(RepoApi::class.java)
+            .getTable(l)
+            .enqueue(object : Callback<EventList>{
+                override fun onFailure(call: Call<EventList>, t: Throwable) {
+                    callback.onDataError()
+                }
+
+                override fun onResponse(call: Call<EventList>, response: Response<EventList>) {
+                    response.let {
+                        if (it.isSuccessful){
+                            callback.DataLoad(it.body())
+                        } else {
+                            callback.onDataError()
+                        }
+                    }
+                }
+            })
+    }
 }

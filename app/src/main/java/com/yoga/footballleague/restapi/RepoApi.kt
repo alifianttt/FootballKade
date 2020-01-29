@@ -29,4 +29,7 @@ interface RepoApi {
     @GET("searchteams.php")
     fun getTeamName(@Query("t") t: String): Call<ClubResponse>
 
+    @GET("lookuptable.php")
+    fun getTable(@Query("l") l: String): Call<EventList>
+
 }

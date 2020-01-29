@@ -10,5 +10,8 @@ data class Clubs(
     var teamName: String? = null,
 
     @field:SerializedName("strTeamBadge")
-    val strTeamBadge: String? = null
+    val strTeamBadge: String? = null,
+
+    @field:SerializedName("strDescriptionEN")
+    val strDescriptionEN: String? = null
 )
